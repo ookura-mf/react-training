@@ -1,4 +1,4 @@
-import { Square, SquareValue } from "../square";
+import { Square, SquareValue } from "../square/Square";
 
 type BoardProps = {
   squares: SquareValue[];

@@ -1,6 +1,6 @@
 import { useReducer, useState } from "react";
-import { Board } from "../board";
-import { SquareValue } from "../square";
+import { Board } from "../board/Board";
+import { SquareValue } from "../square/Square";
 import { GameInfo } from "./GameInfo";
 import {
   GameState,

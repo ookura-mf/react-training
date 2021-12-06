@@ -1,5 +1,5 @@
 import React from "react";
-import { GameHistory } from "../components/game";
+import { GameHistory } from "../components/game/Game";
 import { calculateWinner } from "../usecases/calculateWinner";
 
 export type GameState = {

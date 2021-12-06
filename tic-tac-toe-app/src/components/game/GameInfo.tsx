@@ -1,4 +1,4 @@
-import { GameHistory } from "./";
+import { GameHistory } from "./Game";
 import { GameHistoryButtonList } from "./GameHitstoryButtonList";
 import { calculateWinner } from "../../usecases/calculateWinner";
 

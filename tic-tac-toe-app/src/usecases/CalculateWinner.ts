@@ -1,4 +1,4 @@
-import { SquareValue } from "../components/square";
+import { SquareValue } from "../components/square/Square";
 
 export const calculateWinner = (squares: Array<SquareValue>) => {
   const lines = [

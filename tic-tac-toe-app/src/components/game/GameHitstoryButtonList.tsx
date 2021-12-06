@@ -1,4 +1,4 @@
-import { GameHistory } from "./";
+import { GameHistory } from "./Game";
 import { GameHistoryButton } from "./GameHistoryButton";
 
 type GameHistoryButtonListProps = {
