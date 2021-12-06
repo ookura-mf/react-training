@@ -5,8 +5,15 @@ module.exports = {
   },
   'extends': [
     'plugin:react/recommended',
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
     'google',
   ],
+  'globals': {
+    Atomics: "readonly",
+    SharedArrayBuffer: "readonly",
+    React: "writable",
+  },
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
     'ecmaFeatures': {
@@ -24,4 +31,5 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
   },
+  'settings': { 'react': { 'version': "detect" } },
 };
