@@ -1,4 +1,4 @@
-import { useState, VFC } from "react";
+import { useState } from "react";
 import { Board } from "../board";
 import { SquareValue } from "../square";
 import { GameInfo } from "./GameInfo";
@@ -33,7 +33,7 @@ const calculateWinner = (squares: Array<SquareValue>) => {
   return null;
 };
 
-export const Game: VFC = () => {
+export const Game = () => {
   const [history, setHistory] = useState(initialHistory);
   const [stepNumber, setStepNumber] = useState(0);
   const [xIsNext, setXIsNext] = useState(true);

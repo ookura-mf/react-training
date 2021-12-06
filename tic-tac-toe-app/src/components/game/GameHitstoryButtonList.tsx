@@ -1,4 +1,3 @@
-import { VFC } from "react";
 import { GameHistory } from "./";
 import { GameHistoryButton } from "./GameHistoryButton";
 
@@ -7,9 +6,7 @@ type GameHistoryButtonListProps = {
   onClick: (move: number) => void;
 };
 
-export const GameHistoryButtonList: VFC<GameHistoryButtonListProps> = (
-  props: GameHistoryButtonListProps
-) => {
+export const GameHistoryButtonList = (props: GameHistoryButtonListProps) => {
   return (
     <ol>
       {props.history.map((_, move) => {

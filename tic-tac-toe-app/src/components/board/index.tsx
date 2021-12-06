@@ -1,4 +1,3 @@
-import { VFC } from "react";
 import { Square, SquareValue } from "../square";
 
 type BoardProps = {
@@ -6,7 +5,7 @@ type BoardProps = {
   onClick: (i: number) => void;
 };
 
-export const Board: VFC<BoardProps> = (props: BoardProps) => {
+export const Board = (props: BoardProps) => {
   const renderSquare = (i: number) => {
     return <Square value={props.squares[i]} onClick={() => props.onClick(i)} />;
   };

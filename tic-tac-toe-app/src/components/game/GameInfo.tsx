@@ -1,4 +1,3 @@
-import { VFC } from "react";
 import { GameHistory } from "./";
 import { GameHistoryButtonList } from "./GameHitstoryButtonList";
 
@@ -9,7 +8,7 @@ type GameInfoProps = {
   onClick: (move: number) => void;
 };
 
-export const GameInfo: VFC<GameInfoProps> = (props: GameInfoProps) => {
+export const GameInfo = (props: GameInfoProps) => {
   const statusMessage = (winner: string | null, xIsNext: boolean) => {
     if (props.winner) {
       return "Winner: " + winner;
