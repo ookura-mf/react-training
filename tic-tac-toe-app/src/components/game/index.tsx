@@ -2,7 +2,6 @@ import { useReducer, useState } from "react";
 import { Board } from "../board";
 import { SquareValue } from "../square";
 import { GameInfo } from "./GameInfo";
-import { calculateWinner } from "../../usecases/calculateWinner";
 import {
   GameState,
   gameReducer,
@@ -23,6 +22,7 @@ const initialState: GameState = {
   stepNumber: 0,
   xIsNext: true,
 };
+
 export const Game = () => {
   const [state, dispatch] = useReducer(gameReducer, initialState);
   const handleClick = (i: number) => {
@@ -34,7 +34,6 @@ export const Game = () => {
   };
 
   const current = state.history[state.stepNumber];
-  const winner = calculateWinner(current.squares);
 
   return (
     <div className="game">
@@ -43,7 +42,7 @@ export const Game = () => {
       </div>
       <GameInfo
         history={state.history}
-        winner={winner}
+        stepNumber={state.stepNumber}
         xIsNext={state.xIsNext}
         onClick={jumpTo}
       />
