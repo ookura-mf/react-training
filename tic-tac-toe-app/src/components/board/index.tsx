@@ -1,4 +1,4 @@
-import { Square, SquareValue } from "../square";
+import {Square, SquareValue} from '../square';
 
 type BoardProps = {
   squares: SquareValue[];
@@ -6,9 +6,9 @@ type BoardProps = {
 };
 
 export const Board = (props: BoardProps) => {
-  function renderSquare(i: number) {
+  const renderSquare = (i: number) => {
     return <Square value={props.squares[i]} onClick={() => props.onClick(i)} />;
-  }
+  };
 
   return (
     <div>
