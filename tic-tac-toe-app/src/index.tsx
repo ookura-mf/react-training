@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
-type SquareValue = string | null;
+type SquareValue = "X" | "O" | null;
 type SquareProps = {
   value: SquareValue;
   onClick: () => void;
