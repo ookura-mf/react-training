@@ -25,8 +25,11 @@ const initialState: GameState = {
 
 export const Game = () => {
   const [state, dispatch] = useReducer(gameReducer, initialState);
-  const handleClick = (i: number) => {
-    dispatch({ type: GameActionType.GAME_ACTION_ADD, squareIndex: i });
+  const handleClick = (squareIndex: number) => {
+    dispatch({
+      type: GameActionType.GAME_ACTION_ADD,
+      squareIndex: squareIndex,
+    });
   };
 
   const jumpTo = (step: number) => {
