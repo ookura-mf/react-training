@@ -1,8 +1,9 @@
-import {useState} from 'react';
-import {Board} from '../board';
-import {SquareValue} from '../square';
+import { useState } from "react";
+import { Board } from "../board";
+import { SquareValue } from "../square";
+import { GameInfo } from "./GameInfo";
 
-type GameHistory = {
+export type GameHistory = {
   squares: SquareValue[];
 };
 
@@ -38,22 +39,22 @@ export const Game = () => {
   const [xIsNext, setXIsNext] = useState(true);
 
   const handleClick = (i: number) => {
-    setHistory(history.slice(0, stepNumber + 1));
-    const current = history[stepNumber];
+    const updatedHistory = history.slice(0, stepNumber + 1);
+    const current = updatedHistory[stepNumber];
     const squares = current.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = xIsNext ? 'X' : 'O';
+    squares[i] = xIsNext ? "X" : "O";
 
     setHistory(
-        history.concat([
-          {
-            squares: squares,
-          },
-        ]),
+      updatedHistory.concat([
+        {
+          squares: squares,
+        },
+      ])
     );
-    setStepNumber(history.length);
+    setStepNumber(updatedHistory.length);
     setXIsNext(!xIsNext);
   };
 
@@ -64,29 +65,18 @@ export const Game = () => {
 
   const current = history[stepNumber];
   const winner = calculateWinner(current.squares);
-  let statusMessage;
-  if (winner) {
-    statusMessage = 'Winner: ' + winner;
-  } else {
-    statusMessage = 'Next player: ' + (xIsNext ? 'X' : 'O');
-  }
-  const moves = history.map((_, move) => {
-    const desc = move ? 'Go to move #' + move : 'Go to game start';
-    return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)}>{desc}</button>
-      </li>
-    );
-  });
+
   return (
     <div className="game">
       <div className="game-board">
         <Board squares={current.squares} onClick={(i) => handleClick(i)} />
       </div>
-      <div className="game-info">
-        <div>{statusMessage}</div>
-        <ol>{moves}</ol>
-      </div>
+      <GameInfo
+        history={history}
+        winner={winner}
+        xIsNext={xIsNext}
+        onClick={jumpTo}
+      />
     </div>
   );
 };
