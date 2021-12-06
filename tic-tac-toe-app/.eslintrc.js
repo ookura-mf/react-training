@@ -27,9 +27,6 @@ module.exports = {
     "react-hooks",
     '@typescript-eslint',
   ],
-  'rules': {
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
-  },
+  'rules': {},
   'settings': { 'react': { 'version': "detect" } },
 };
