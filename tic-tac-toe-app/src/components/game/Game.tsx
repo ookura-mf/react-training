@@ -1,12 +1,8 @@
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import { Board } from "../board/Board";
 import { SquareValue } from "../square/Square";
 import { GameInfo } from "./GameInfo";
-import {
-  GameState,
-  gameReducer,
-  GameActionType,
-} from "../../reducers/gameReducer";
+import { GameState, gameReducer } from "../../reducers/gameReducer";
 
 export type GameHistory = {
   squares: SquareValue[];
@@ -26,14 +22,11 @@ const initialState: GameState = {
 export const Game = () => {
   const [state, dispatch] = useReducer(gameReducer, initialState);
   const handleClick = (squareIndex: number) => {
-    dispatch({
-      type: GameActionType.GAME_ACTION_ADD,
-      squareIndex: squareIndex,
-    });
+    dispatch({ type: "add_value", squareIndex: squareIndex });
   };
 
   const jumpTo = (step: number) => {
-    dispatch({ type: GameActionType.GAME_ACTION_JUMP, step: step });
+    dispatch({ type: "jump_to_history", step: step });
   };
 
   const current = state.history[state.stepNumber];

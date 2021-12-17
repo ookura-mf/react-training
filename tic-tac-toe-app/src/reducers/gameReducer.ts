@@ -8,12 +8,17 @@ export type GameState = {
   xIsNext: boolean;
 };
 export type GameAction =
-  | { type: GameActionType.GAME_ACTION_ADD; squareIndex: number }
-  | { type: GameActionType.GAME_ACTION_JUMP; step: number };
+  | AddValueAction 
+  | JumpHistoryAction
 
-export enum GameActionType {
-  GAME_ACTION_ADD = "GAME_ACTION_ADD",
-  GAME_ACTION_JUMP = "GAME_ACTION_JUMP",
+type AddValueAction = {
+  type: "add_value"; 
+  squareIndex: number; 
+}
+
+type JumpHistoryAction = {
+  type: "jump_to_history";
+  step: number; 
 }
 
 export const gameReducer: React.Reducer<GameState, GameAction> = (
@@ -21,7 +26,7 @@ export const gameReducer: React.Reducer<GameState, GameAction> = (
   action: GameAction
 ) => {
   switch (action.type) {
-    case GameActionType.GAME_ACTION_ADD: {
+    case "add_value": {
       const updatedHistory = state.history.slice(0, state.stepNumber + 1);
       const current = updatedHistory[state.stepNumber];
       const squares = current.squares.slice();
@@ -36,7 +41,7 @@ export const gameReducer: React.Reducer<GameState, GameAction> = (
         xIsNext: !state.xIsNext,
       };
     }
-    case GameActionType.GAME_ACTION_JUMP:
+    case "jump_to_history":
       return {
         ...state,
         stepNumber: action.step,
