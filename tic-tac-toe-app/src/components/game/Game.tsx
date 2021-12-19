@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useCallback, useReducer } from "react";
 import { Board } from "../board/Board";
 import { SquareValue } from "../square/Square";
 import { GameInfo } from "./GameInfo";
@@ -25,13 +25,13 @@ export const Game = () => {
   const rawSize = 3;
   const columnSize = 3;
 
-  const handleClick = (squareIndex: number) => {
+  const handleClick = useCallback((squareIndex: number) => {
     dispatch({ type: "add_value", squareIndex: squareIndex });
-  };
+  }, []);
 
-  const jumpTo = (step: number) => {
+  const jumpTo = useCallback((step: number) => {
     dispatch({ type: "jump_to_history", step: step });
-  };
+  }, []);
 
   const current = state.history[state.stepNumber];
 
