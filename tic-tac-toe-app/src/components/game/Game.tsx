@@ -1,11 +1,11 @@
 import { useCallback, useReducer } from "react";
 import { Board } from "../board/Board";
-import { SquareValue } from "../square/Square";
+import { Mark } from "../square/Square";
 import { GameInfo } from "./GameInfo";
 import { GameState, gameReducer } from "../../reducers/gameReducer";
 
 export type GameHistory = {
-  squares: SquareValue[];
+  squares: Mark[];
 };
 
 const initialHistory: GameHistory[] = [
@@ -26,7 +26,7 @@ export const Game = () => {
   const columnSize = 3;
 
   const handleClick = useCallback((squareIndex: number) => {
-    dispatch({ type: "add_value", squareIndex: squareIndex });
+    dispatch({ type: "add_mark", squareIndex: squareIndex });
   }, []);
 
   const jumpTo = useCallback((step: number) => {

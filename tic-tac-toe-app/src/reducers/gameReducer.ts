@@ -8,11 +8,11 @@ export type GameState = {
   xIsNext: boolean;
 };
 export type GameAction =
-  | AddValueAction 
+  | AddmarkAction 
   | JumpHistoryAction
 
-type AddValueAction = {
-  type: "add_value"; 
+type AddmarkAction = {
+  type: "add_mark"; 
   squareIndex: number; 
 }
 
@@ -26,7 +26,7 @@ export const gameReducer: React.Reducer<GameState, GameAction> = (
   action: GameAction
 ) => {
   switch (action.type) {
-    case "add_value": {
+    case "add_mark": {
       const updatedHistory = state.history.slice(0, state.stepNumber + 1);
       const current = updatedHistory[state.stepNumber];
       const squares = current.squares.slice();

@@ -1,10 +1,10 @@
-import { SquareValue } from "../square/Square";
+import { Mark } from "../square/Square";
 import { BoardRaw } from "./BoardRaw";
 
 type BoardProps = {
   rawSize: number;
   columnSize: number;
-  squares: SquareValue[];
+  squares: Mark[];
   onClick: (i: number) => void;
 };
 

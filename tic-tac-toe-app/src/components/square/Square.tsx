@@ -1,13 +1,13 @@
-export type SquareValue = "X" | "O" | null;
+export type Mark = "X" | "O" | null;
 type SquareProps = {
-  value: SquareValue;
+  mark: Mark;
   onClick: () => void;
 };
 
 export const Square = (props: SquareProps) => {
   return (
     <button className="square" onClick={props.onClick}>
-      {props.value}
+      {props.mark}
     </button>
   );
 };

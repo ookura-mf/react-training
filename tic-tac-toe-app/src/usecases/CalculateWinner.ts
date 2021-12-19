@@ -1,6 +1,6 @@
-import { SquareValue } from "../components/square/Square";
+import { Mark } from "../components/square/Square";
 
-export const calculateWinner = (squares: Array<SquareValue>) => {
+export const calculateWinner = (squares: Array<Mark>) => {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
