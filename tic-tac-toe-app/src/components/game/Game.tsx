@@ -21,6 +21,10 @@ const initialState: GameState = {
 
 export const Game = () => {
   const [state, dispatch] = useReducer(gameReducer, initialState);
+
+  const rawSize = 3;
+  const columnSize = 3;
+
   const handleClick = (squareIndex: number) => {
     dispatch({ type: "add_value", squareIndex: squareIndex });
   };
@@ -34,7 +38,12 @@ export const Game = () => {
   return (
     <div className="game">
       <div className="game-board">
-        <Board squares={current.squares} onClick={(i) => handleClick(i)} />
+        <Board
+          rawSize={rawSize}
+          columnSize={columnSize}
+          squares={current.squares}
+          onClick={(i) => handleClick(i)}
+        />
       </div>
       <GameInfo
         history={state.history}
